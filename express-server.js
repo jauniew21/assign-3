@@ -59,10 +59,10 @@ app.get("/api/constructorResults/:constructorRef/:year", (req, resp) => {
         const season = parseInt(req.params.year);
         const specifiedResults = results.filter(result => result.constructor.ref === ref 
             && result.race.year === season);
-        if (!specifiedResults) {
+        if (specifiedResults.length === 0) {
             // If no matching object is found, return a 404 error with a JSON message
             return resp.status(404).json({
-                error: `Check your spelling, ${req.params[param]} was not found!`
+                error: `Check your spelling, your request was not found!`
             });
         }
         // If a matching object is found, return it
@@ -84,10 +84,10 @@ app.get("/api/driverResults/:driverRef/:year", (req, resp) => {
     const season = parseInt(req.params.year);
     const specifiedResults = results.filter(result => result.driver.ref === ref 
         && result.race.year === season);
-    if (!specifiedResults) {
+    if (specifiedResults.length === 0) {
         // If no matching object is found, return a 404 error with a JSON message
         return resp.status(404).json({
-            error: `Check your spelling, ${req.params[param]} was not found!`
+            error: `Check your spelling, your request was not found!`
         });
     }
     resp.json(specifiedResults);
@@ -111,10 +111,10 @@ app.get("/api/races/id/:id", (req, resp) =>
 app.get("/api/results/race/:id", (req, resp) => {
         const raceId = parseInt(req.params.id);
         const specifiedResults = results.filter(result => result.race.id === raceId);
-        if (!specifiedResults) {
+        if (specifiedResults.length === 0) {
             // If no matching object is found, return a 404 error with a JSON message
             return resp.status(404).json({
-                error: `Check your spelling, ${req.params[param]} was not found!`
+                error: `Check your spelling, your request was not found!`
             });
         }
         resp.json(specifiedResults);
@@ -125,10 +125,10 @@ app.get("/api/results/race/:id", (req, resp) => {
 app.get("/api/results/season/:year", (req, resp) => {
         const season = parseInt(req.params.year);
         const specifiedResults = results.filter(result => result.race.year === season);
-        if (!specifiedResults) {
+        if (specifiedResults.length === 0) {
             // If no matching object is found, return a 404 error with a JSON message
             return resp.status(404).json({
-                error: `Check your spelling, ${req.params[param]} was not found!`
+                error: `Check your spelling, your request was not found!`
             });
         }
         resp.json(specifiedResults);

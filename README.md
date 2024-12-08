@@ -23,4 +23,4 @@ https://assign-3-cuby.onrender.com/api/races/season/2032 \
 https://assign-3-cuby.onrender.com/api/results/race/1100 \
 https://assign-3-cuby.onrender.com/api/results/race/1756348576 \
 https://assign-3-cuby.onrender.com/api/results/season/2023 \
-https://assign-3-cuby.onrender.com/api/results/season/2034 \
+https://assign-3-cuby.onrender.com/api/results/season/2034
