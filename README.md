@@ -15,8 +15,8 @@ https://assign-3-cuby.onrender.com/api/drivers \
 https://assign-3-cuby.onrender.com/api/drivers/hamilton \
 https://assign-3-cuby.onrender.com/api/drivers/HAMilton \
 https://assign-3-cuby.onrender.com/api/drivers/randy \
-https://assign-3-cuby.onrender.com/api/driverResults/piastre/2023 \
-https://assign-3-cuby.onrender.com/api/driverResults/piastre/2002 \
+https://assign-3-cuby.onrender.com/api/driverResults/piastri/2023 \
+https://assign-3-cuby.onrender.com/api/driverResults/piastri/2002 \
 https://assign-3-cuby.onrender.com/api/races/season/2023 \
 https://assign-3-cuby.onrender.com/api/races/seasoning/2023 \ 
 https://assign-3-cuby.onrender.com/api/races/season/2032 \
