@@ -55,7 +55,7 @@ app.get("/api/constructors/:constructorRef", (req, resp) =>
 
 // get the results of a constructor in a specific season 
 app.get("/api/constructorResults/:constructorRef/:year", (req, resp) => {
-        const ref = req.params.constructorRef;
+        const ref = req.params.constructorRef.toLowerCase();
         const season = parseInt(req.params.year);
         const specifiedResults = results.filter(result => result.constructor.ref === ref 
             && result.race.year === season);
@@ -80,7 +80,7 @@ app.get("/api/drivers/:driverRef", (req, resp) =>
 
 // get the results of a driver in a specific season 
 app.get("/api/driverResults/:driverRef/:year", (req, resp) => {
-    const ref = req.params.driverRef;
+    const ref = req.params.driverRef.toLowerCase();
     const season = parseInt(req.params.year);
     const specifiedResults = results.filter(result => result.driver.ref === ref 
         && result.race.year === season);
@@ -151,9 +151,10 @@ app.listen(8080, () => {
 getAll = (req, resp, jsonData) => { resp.json(jsonData) }
 
 // get a specific object from a JSON file
-getOne = (req, resp, jsonData, param) => { 
-    const exact = jsonData.find(d => d[param] == req.params[param]);
-    if (!exact) {
+getOne = (req, resp, jsonData, param) => {
+    const value = req.params[param].toLowerCase();
+    const exact = jsonData.find(d => d[param] == value);
+    if (!exact || exact.length === 0) {
         // If no matching object is found, return a 404 error with a JSON message
         return resp.status(404).json({
             error: `Check your spelling, ${req.params[param]} was not found!`
@@ -165,8 +166,9 @@ getOne = (req, resp, jsonData, param) => {
 
 // get objects from a JSON file with a specific parameter
 getSome = (req, resp, jsonData, param) => { 
-    const group = jsonData.filter(d => d[param] == req.params[param]);
-    if (!group) {
+    const value = req.params[param].toLowerCase();
+    const group = jsonData.filter(d => d[param] == value);
+    if (!group || group.length === 0) {
         // If no matching object is found, return a 404 error with a JSON message
         return resp.status(404).json({
             error: `Check your spelling, ${req.params[param]} was not found!`
