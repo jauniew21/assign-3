@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "express": "^4.21.2"
-  }
+  },
+  "name": "assign-3",
+  "version": "1.0.0",
+  "description": "**Please view `COMP3612 Assignment 3.pdf` for instructions**",
+  "main": "express-server.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node express-server.js"
+    },
+  "author": "",
+  "license": "ISC"
 }
