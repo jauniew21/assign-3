@@ -110,6 +110,14 @@ app.get("/api/results/season/:year", (req, resp) => {
     }
 );
 
+// I love documentation
+// https://expressjs.com/en/starter/faq.html
+app.use((req, res, next) => {
+    res.status(404).json({
+        error: "This is not included in the API. Check your spelling."
+    })
+})
+
 app.listen(8080, () => {
     console.log("listening for requests on port 8080");
 })
@@ -120,11 +128,25 @@ getAll = (req, resp, jsonData) => { resp.json(jsonData) }
 // get a specific object from a JSON file
 getOne = (req, resp, jsonData, param) => { 
     const exact = jsonData.find(d => d[param] == req.params[param]);
+    if (!exact) {
+        // If no matching object is found, return a 404 error with a JSON message
+        return resp.status(404).json({
+            error: `Check your spelling, ${req.params[param]} was not found!`
+        });
+    }
+    // If a matching object is found, return it
     resp.json(exact);
 }
 
 // get objects from a JSON file with a specific parameter
 getSome = (req, resp, jsonData, param) => { 
     const group = jsonData.filter(d => d[param] == req.params[param]);
+    if (!group) {
+        // If no matching object is found, return a 404 error with a JSON message
+        return resp.status(404).json({
+            error: `Check your spelling, ${req.params[param]} was not found!`
+        });
+    }
+    // If a matching object is found, return it
     resp.json(group);
 }
