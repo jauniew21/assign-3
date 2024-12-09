@@ -24,3 +24,5 @@ https://assign-3-cuby.onrender.com/api/results/race/1100 \
 https://assign-3-cuby.onrender.com/api/results/race/1756348576 \
 https://assign-3-cuby.onrender.com/api/results/season/2023 \
 https://assign-3-cuby.onrender.com/api/results/season/2034
+
+NOTE: Onrender can take up to 50 seconds to load after not being awakened for a while.
